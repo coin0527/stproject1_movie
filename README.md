@@ -1,6 +1,6 @@
 ## 설치항목
 
-- [] GlobalStyle에 font-family: 'Noto Sans KR', sans-serif;추가
+- [x] GlobalStyle에 font-family: 'Noto Sans KR', sans-serif;추가
 - [x] 기타 필요 항목 설치
 
 ## 2023.11.24
