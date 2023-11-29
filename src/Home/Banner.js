@@ -14,6 +14,8 @@ const Wrap = styled.div`
     position: relative;
   }
   h3 {
+    width: 100%;
+    max-width: 700px;
     font-size: 70px;
     font-weight: 500;
     margin-bottom: 30px;

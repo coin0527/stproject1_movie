@@ -12,6 +12,8 @@ const Mainform = styled.div`
   max-width: 100%;
   padding: 50px 5%;
   font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
 `;
 
 export const Home = () => {
