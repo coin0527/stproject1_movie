@@ -9,5 +9,5 @@ const Container = styled.footer`
 `;
 
 export const Footer = () => {
-  return <Container>&copy; 2023. Sirocoin</Container>;
+  return <Container> 2023.11.28 ~ 2023.12.04 &copy;Viichan</Container>;
 };
