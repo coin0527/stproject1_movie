@@ -6,7 +6,13 @@ const Wrap = styled.div`
   border: 1px solid red;
   background-color: lightgray;
 `;
-
-export const Banner = () => {
-  return <Wrap></Wrap>;
+const Gradients = styled.div``;
+export const Banner = ({ data }) => {
+  return (
+    <Wrap>
+      <Gradients />
+      <h3></h3>
+      <p></p>
+    </Wrap>
+  );
 };
