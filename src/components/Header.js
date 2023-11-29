@@ -12,7 +12,6 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   line-height: 30px;
-  border: 1px solid white;
 `;
 
 const SearchWrap = styled.ul`

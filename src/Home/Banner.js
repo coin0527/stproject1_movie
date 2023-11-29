@@ -23,7 +23,7 @@ const Wrap = styled.div`
   }
   p {
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     font-size: 19px;
     font-weight: 400;
     opacity: 0.8;

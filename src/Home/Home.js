@@ -5,15 +5,15 @@ import { Banner } from "./Banner";
 import { useEffect, useState } from "react";
 import { nowPlaying, popular, toplated, upcoming } from "../api";
 import { Loading } from "../components/Loading";
+import { ShowMovie } from "./ShowMovie";
 
 const Wrap = styled.div``;
 const Mainform = styled.div`
   width: 100%;
   max-width: 100%;
   padding: 50px 5%;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 600;
-  margin-bottom: 30px;
 `;
 
 export const Home = () => {
@@ -53,6 +53,7 @@ export const Home = () => {
             <Header />
             {nowPlayingData && <Banner data={nowPlayingData[0]} />}
             <Mainform> 상영중인 영화 </Mainform>
+            <ShowMovie movieData={nowPlayingData} />
             <Footer />
           </Wrap>
         </div>

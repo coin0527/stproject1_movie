@@ -1,12 +1,33 @@
 import styled from "styled-components";
+import { IMG_URL } from "../components/Setcons";
 
-const Wrap = styled.div``;
-const Title = styled.div``;
-
-export const ShowMovie = () => {
+const Wrap = styled.div`
+  padding: 10px 5%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 30px;
+  row-gap: 50px;
+`;
+const CoverBG = styled.div`
+  height: 300px;
+  background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
+    cover;
+`;
+const BgTitle = styled.div`
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+`;
+export const ShowMovie = ({ movieData }) => {
   return (
     <Wrap>
-      <Title> 타이틀 </Title>
+      {movieData.map((data) => (
+        <div key={data.id}>
+          <CoverBG $bgUrl={data.poster_path}></CoverBG>
+          <BgTitle>{data.title}</BgTitle>
+        </div>
+      ))}
     </Wrap>
   );
 };
