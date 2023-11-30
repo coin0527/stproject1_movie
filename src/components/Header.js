@@ -21,22 +21,19 @@ const Logo = styled.div`
   font-size: 30px;
   font-weight: 700;
 `;
-const Form = styled.form``;
+const Form = styled.form`
+  margin: 0 10% 0 20%;
+`;
 const Input = styled.input`
   width: 500px;
   height: 30px;
   text-align: center;
   border-radius: 10px;
-  margin-right: 30px;
 `;
 const User = styled.div`
   display: flex;
-  position: absolute;
-  top: 33px;
-  right: 200px;
   h3 {
     margin-left: 10px;
-    line-height: 30px;
     cursor: pointer;
   }
 `;
@@ -68,9 +65,9 @@ export const Header = () => {
       <User>
         <FontAwesomeIcon
           icon={faUser}
-          style={{ cursor: "pointer", fontSize: "24px" }}
+          style={{ cursor: "pointer", fontSize: "24px", lineHeight: "50px" }}
         />
-        <h3>Manager</h3>
+        <h3>Admin</h3>
       </User>
 
       <FontAwesomeIcon

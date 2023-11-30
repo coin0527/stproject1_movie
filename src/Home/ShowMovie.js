@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IMG_URL } from "../components/Setcons";
+import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
   padding: 10px 5%;
@@ -24,8 +25,10 @@ export const ShowMovie = ({ movieData }) => {
     <Wrap>
       {movieData.map((data) => (
         <div key={data.id}>
-          <CoverBG $bgUrl={data.poster_path}></CoverBG>
-          <BgTitle>{data.title}</BgTitle>
+          <Link to={`/detail/${data.id}`}>
+            <CoverBG $bgUrl={data.poster_path}></CoverBG>
+            <BgTitle>{data.title}</BgTitle>
+          </Link>
         </div>
       ))}
     </Wrap>
