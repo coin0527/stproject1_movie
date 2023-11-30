@@ -5,13 +5,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { routes } from "../routes";
 
-const Wrap = styled.div`
-  padding: 25px 5%;
+const Wrap = styled.header`
+  width: 100%;
+  padding: 20px 5%;
   display: flex;
   justify-content: space-between;
-  line-height: 30px;
+  align-items: center;
+  a {
+    color: white;
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 `;
 
 const SearchWrap = styled.ul`
@@ -31,11 +41,11 @@ const Input = styled.input`
   border-radius: 10px;
 `;
 const User = styled.div`
+  font-size: 30px;
+  margin-right: 30px;
+`;
+const Con = styled.div`
   display: flex;
-  h3 {
-    margin-left: 10px;
-    cursor: pointer;
-  }
 `;
 
 export const Header = () => {
@@ -44,9 +54,12 @@ export const Header = () => {
   });
 
   const searchHandler = () => {};
+
   return (
     <Wrap>
-      <Logo> Logo </Logo>
+      <Logo>
+        <Link to={routes.home}>Logo</Link>
+      </Logo>
       <SearchWrap>
         <Form onSubmit={handleSubmit(searchHandler)}>
           <Input
@@ -62,18 +75,20 @@ export const Header = () => {
           style={{ cursor: "pointer", fontSize: "30px" }}
         />
       </SearchWrap>
-      <User>
-        <FontAwesomeIcon
-          icon={faUser}
-          style={{ cursor: "pointer", fontSize: "24px", lineHeight: "50px" }}
-        />
-        <h3>Admin</h3>
-      </User>
 
-      <FontAwesomeIcon
-        icon={faBars}
-        style={{ cursor: "pointer", fontSize: "40px" }}
-      />
+      <Con>
+        <User>
+          <FontAwesomeIcon
+            icon={faUser}
+            style={{ cursor: "pointer", fontSize: "24px", lineHeight: "50px" }}
+          />
+        </User>
+
+        <FontAwesomeIcon
+          icon={faBars}
+          style={{ cursor: "pointer", fontSize: "40px" }}
+        />
+      </Con>
     </Wrap>
   );
 };
