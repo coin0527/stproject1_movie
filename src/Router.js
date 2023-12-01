@@ -8,6 +8,7 @@ import { SignUp } from "./Login/SignUp";
 import { Pagenotfound } from "./components/Pagenotfound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { Subpage } from "./Detail/Subpage";
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path={routes.search} element={<Search />} />
         <Route path={routes.login} element={<Login />} />
         <Route path={routes.signup} element={<SignUp />} />
+        <Route path={routes.sub} element={<Subpage />} />
         <Route path="/*" element={<Pagenotfound />} />
       </Routes>
       <Footer />

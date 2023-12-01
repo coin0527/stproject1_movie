@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { routes } from "../routes";
+import { useState } from "react";
+import { MovireSearch } from "../api";
 
 const Wrap = styled.header`
   width: 100%;
@@ -51,16 +53,29 @@ const Con = styled.div`
 `;
 
 export const Header = () => {
+  const [term, setTerm] = useState();
+
   const { register, handleSubmit } = useForm({
     mode: "onSubmit",
   });
 
-  const searchHandler = () => {};
+  const searchHandler = async (data) => {
+    const { search: Keyword } = data;
+    try {
+      const { results } = await MovireSearch(Keyword);
+      setTerm(results);
+    } catch (error) {
+      console.log(error);
+    }
+    if (term === true) {
+      <Link to={"/search"}></Link>;
+    }
+  };
 
   return (
     <Wrap>
       <Logo>
-        <Link to={routes.home}>Logo</Link>
+        <Link to={routes.home}>JMovie</Link>
       </Logo>
       <SearchWrap>
         <Form onSubmit={handleSubmit(searchHandler)}>

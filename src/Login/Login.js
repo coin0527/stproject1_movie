@@ -95,6 +95,12 @@ export const Login = () => {
 
   const loginHandler = (data) => {
     console.log(data);
+
+    if (data.username == "admin" && data.password == "test123123") {
+      return;
+    } else {
+      console.log("Try again");
+    }
   };
   return (
     <Wrap>
