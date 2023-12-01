@@ -53,7 +53,7 @@ const Con = styled.div`
 `;
 
 export const Header = () => {
-  const [term, setTerm] = useState();
+  const [mdata, setMdata] = useState();
 
   const { register, handleSubmit } = useForm({
     mode: "onSubmit",
@@ -63,12 +63,9 @@ export const Header = () => {
     const { search: Keyword } = data;
     try {
       const { results } = await MovireSearch(Keyword);
-      setTerm(results);
+      setMdata(results);
     } catch (error) {
       console.log(error);
-    }
-    if (term === true) {
-      <Link to={"/search"}></Link>;
     }
   };
 
