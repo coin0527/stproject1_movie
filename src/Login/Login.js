@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { User } from "../components/User";
 
 const Wrap = styled.div`
   height: 100vh;
@@ -96,7 +97,10 @@ export const Login = () => {
   const loginHandler = (data) => {
     console.log(data);
 
-    if (data.username == "admin" && data.password == "test123123") {
+    if (
+      data.username == User[0].username &&
+      data.password == User[0].password
+    ) {
       return;
     } else {
       console.log("Try again");
