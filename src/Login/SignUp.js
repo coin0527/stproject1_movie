@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrap = styled.div`
@@ -138,7 +139,9 @@ export const SignUp = () => {
 
         <Signupq>
           <h3> 아이디가 있으신가요? </h3>
-          <h4> 로그인 </h4>
+          <Link to={"/login"}>
+            <h4> 로그인 </h4>
+          </Link>
         </Signupq>
       </Form>
     </Wrap>

@@ -46,6 +46,8 @@ const User = styled.div`
 `;
 const Con = styled.div`
   display: flex;
+  div {
+  }
 `;
 
 export const Header = () => {
@@ -70,24 +72,34 @@ export const Header = () => {
             placeholder="내용을 입력해주세요."
           />
         </Form>
-        <FontAwesomeIcon
-          icon={faMagnifyingGlass}
-          style={{ cursor: "pointer", fontSize: "30px" }}
-        />
+        <Link to={"/search"}>
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            style={{ cursor: "pointer", fontSize: "30px" }}
+          />
+        </Link>
       </SearchWrap>
 
       <Con>
-        <User>
-          <FontAwesomeIcon
-            icon={faUser}
-            style={{ cursor: "pointer", fontSize: "24px", lineHeight: "50px" }}
-          />
-        </User>
+        <Link to={"/login"}>
+          <User>
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{
+                cursor: "pointer",
+                fontSize: "24px",
+                lineHeight: "50px",
+              }}
+            />
+          </User>
+        </Link>
 
-        <FontAwesomeIcon
-          icon={faBars}
-          style={{ cursor: "pointer", fontSize: "40px" }}
-        />
+        <div>
+          <FontAwesomeIcon
+            icon={faBars}
+            style={{ cursor: "pointer", fontSize: "40px" }}
+          />
+        </div>
       </Con>
     </Wrap>
   );

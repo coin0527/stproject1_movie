@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
 import { Banner } from "./Banner";
 import { useEffect, useState } from "react";
 import { nowPlaying, popular, toplated, upcoming } from "../api";
@@ -18,9 +16,9 @@ const Mainform = styled.div`
 
 export const Home = () => {
   const [nowPlayingData, setNowplayingData] = useState();
-  const [popularData, setPopularData] = useState();
-  const [toplatedData, setToplatedData] = useState();
-  const [upcomingData, setUpcomingData] = useState();
+  // const [popularData, setPopularData] = useState();
+  // const [toplatedData, setToplatedData] = useState();
+  // const [upcomingData, setUpcomingData] = useState();
   const [load, setLoad] = useState(true);
   useEffect(() => {
     (async () => {
@@ -28,21 +26,20 @@ export const Home = () => {
         const { results: nowResults } = await nowPlaying();
         setNowplayingData(nowResults);
 
-        const { results: populars } = await popular();
-        setPopularData(populars);
+        // const { results: populars } = await popular();
+        // setPopularData(populars);
 
-        const { results: latings } = await toplated();
-        setToplatedData(latings);
+        // const { results: latings } = await toplated();
+        // setToplatedData(latings);
 
-        const { results: upcomings } = await upcoming();
-        setUpcomingData(upcomings);
+        // const { results: upcomings } = await upcoming();
+        // setUpcomingData(upcomings);
         setLoad(false);
       } catch (error) {
         console.log("Error : " + error);
       }
     })();
   }, []);
-
   return (
     <>
       {load ? (
@@ -50,11 +47,9 @@ export const Home = () => {
       ) : (
         <div>
           <Wrap>
-            <Header />
             {nowPlayingData && <Banner data={nowPlayingData[0]} />}
             <Mainform> 상영중인 영화 </Mainform>
             <ShowMovie movieData={nowPlayingData} />
-            <Footer />
           </Wrap>
         </div>
       )}

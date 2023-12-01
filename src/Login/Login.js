@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrap = styled.div`
@@ -105,7 +106,7 @@ export const Login = () => {
             required: "아이디는 필수 입니다.",
           })}
           type="text"
-          placeholder="ID"
+          placeholder="admin"
         />
         <Input
           {...register("password", {
@@ -118,9 +119,11 @@ export const Login = () => {
             message: "숫자 문자 같이 써야합니다.",
           })}
           type="password"
-          placeholder="Password"
+          placeholder="test123123"
         />
-        <Button $isActive={isValid}> 로그인 </Button>
+        <Button $isActive={isValid}>
+          <Link to={"/"}>로그인</Link>
+        </Button>
 
         <Separ>
           <span></span>
@@ -130,7 +133,9 @@ export const Login = () => {
 
         <Signupq>
           <h3>아이디가 없으신가요?</h3>
-          <h4> 회원가입 </h4>
+          <Link to={"/signup"}>
+            <h4> 회원가입 </h4>
+          </Link>
         </Signupq>
       </Form>
     </Wrap>
