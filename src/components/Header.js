@@ -1,15 +1,8 @@
-import {
-  faBars,
-  faMagnifyingGlass,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { routes } from "../routes";
-import { useState } from "react";
-import { MovireSearch } from "../api";
 
 const Wrap = styled.header`
   width: 100%;
@@ -26,77 +19,66 @@ const Wrap = styled.header`
   z-index: 10;
 `;
 
-const SearchWrap = styled.ul`
-  display: flex;
-`;
 const Logo = styled.div`
   font-size: 30px;
   font-weight: 700;
 `;
-const Form = styled.form`
-  margin: 0 10% 0 20%;
-`;
-const Input = styled.input`
-  width: 500px;
-  height: 30px;
-  text-align: center;
-  border-radius: 10px;
-`;
 const User = styled.div`
   font-size: 30px;
-  margin-right: 30px;
 `;
 const Con = styled.div`
   display: flex;
-  div {
+`;
+
+const Sidemenu = styled.ul`
+  display: flex;
+  li {
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 80px;
+    text-align: center;
   }
+`;
+const Con2 = styled.div`
+  display: flex;
 `;
 
 export const Header = () => {
-  const [mdata, setMdata] = useState();
-
-  const { register, handleSubmit } = useForm({
-    mode: "onSubmit",
-  });
-
-  const searchHandler = async (data) => {
-    const { search: Keyword } = data;
-    try {
-      const { results } = await MovireSearch(Keyword);
-      setMdata(results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  console.log(mdata);
-
   return (
     <Wrap>
-      <Logo>
-        <Link to={routes.home}>JMovie</Link>
-      </Logo>
-      <SearchWrap>
-        <Form onSubmit={handleSubmit(searchHandler)}>
-          <Input
-            {...register("search", {
-              required: "검색 내용을 입력해주세요.",
-            })}
-            type="text"
-            placeholder="내용을 입력해주세요."
-          />
-        </Form>
-        <Link to={"/search"}>
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            style={{ cursor: "pointer", fontSize: "30px" }}
-          />
-        </Link>
-      </SearchWrap>
+      <Con2>
+        <Logo>
+          <Link to={routes.home}>JMovie</Link>
+        </Logo>
+
+        <Sidemenu>
+          <Link to={"/popular"}>
+            <li> Popular </li>
+          </Link>
+
+          <Link to={"/rated"}>
+            <li> Lated </li>
+          </Link>
+
+          <Link to={""}>
+            <li> Upcoming </li>
+          </Link>
+        </Sidemenu>
+      </Con2>
 
       <Con>
-        <Link to={"/login"}>
-          <User>
+        <User>
+          <Link to={"/search"}>
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{
+                cursor: "pointer",
+                fontSize: "24px",
+                marginRight: "30px",
+              }}
+            />
+          </Link>
+          <Link to={"/login"}>
             <FontAwesomeIcon
               icon={faUser}
               style={{
@@ -105,15 +87,8 @@ export const Header = () => {
                 lineHeight: "50px",
               }}
             />
-          </User>
-        </Link>
-
-        <div>
-          <FontAwesomeIcon
-            icon={faBars}
-            style={{ cursor: "pointer", fontSize: "40px" }}
-          />
-        </div>
+          </Link>
+        </User>
       </Con>
     </Wrap>
   );

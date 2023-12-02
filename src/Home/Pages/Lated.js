@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Banner } from "./Banner";
+import { Banner } from "../Banner";
 import { useEffect, useState } from "react";
-import { nowPlaying } from "../api";
-import { Loading } from "../components/Loading";
-import { ShowMovie } from "./ShowMovie";
+import { ShowMovie } from "../ShowMovie";
 import { Link } from "react-router-dom";
+import { Loading } from "../../components/Loading";
+import { toplated } from "../../api";
 
 const Wrap = styled.div``;
 const Mainform = styled.div`
@@ -27,19 +27,14 @@ const Top = styled.div`
   cursor: pointer;
 `;
 
-export const Home = () => {
-  const [nowPlayingData, setNowplayingData] = useState();
-  // const [upcomingData, setUpcomingData] = useState();
+export const Lated = () => {
+  const [toplatedData, setToplatedData] = useState();
   const [load, setLoad] = useState(true);
   useEffect(() => {
     (async () => {
       try {
-        const { results: nowResults } = await nowPlaying();
-        setNowplayingData(nowResults);
-
-        // const { results: upcomings } = await upcoming();
-        // setUpcomingData(upcomings);
-
+        const { results: latings } = await toplated();
+        setToplatedData(latings);
         setLoad(false);
       } catch (error) {
         console.log("Error : " + error);
@@ -55,11 +50,11 @@ export const Home = () => {
         <div>
           <Wrap>
             <Top>
-              <Link to={""}>TOP</Link>
+              <Link to={"#"}>TOP</Link>
             </Top>
-            {nowPlayingData && <Banner data={nowPlayingData[0]} />}
-            <Mainform> 상영중인 영화 </Mainform>
-            <ShowMovie movieData={nowPlayingData} />
+            {toplatedData && <Banner data={toplatedData[0]} />}
+            <Mainform> 랭킹 </Mainform>
+            <ShowMovie movieData={toplatedData} />
           </Wrap>
         </div>
       )}

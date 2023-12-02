@@ -5,4 +5,7 @@ export const routes = {
   login: "/login",
   signup: "/signup",
   sub: "/subpage",
+  pop: "/popular",
+  upc: "/upcoming",
+  rat: "/rated",
 };

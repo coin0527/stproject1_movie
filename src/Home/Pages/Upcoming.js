@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Banner } from "./Banner";
+import { Banner } from "../Banner";
 import { useEffect, useState } from "react";
-import { nowPlaying } from "../api";
-import { Loading } from "../components/Loading";
-import { ShowMovie } from "./ShowMovie";
+import { ShowMovie } from "../ShowMovie";
 import { Link } from "react-router-dom";
+import { upcoming } from "../../api";
+import { Loading } from "../../components/Loading";
 
 const Wrap = styled.div``;
 const Mainform = styled.div`
@@ -27,26 +27,20 @@ const Top = styled.div`
   cursor: pointer;
 `;
 
-export const Home = () => {
-  const [nowPlayingData, setNowplayingData] = useState();
-  // const [upcomingData, setUpcomingData] = useState();
+export const Upcoming = () => {
+  const [upcomingData, setUpcomingData] = useState();
   const [load, setLoad] = useState(true);
   useEffect(() => {
     (async () => {
       try {
-        const { results: nowResults } = await nowPlaying();
-        setNowplayingData(nowResults);
-
-        // const { results: upcomings } = await upcoming();
-        // setUpcomingData(upcomings);
-
+        const { results: upcomings } = await upcoming();
+        setUpcomingData(upcomings);
         setLoad(false);
       } catch (error) {
         console.log("Error : " + error);
       }
     })();
   }, []);
-
   return (
     <>
       {load ? (
@@ -55,11 +49,11 @@ export const Home = () => {
         <div>
           <Wrap>
             <Top>
-              <Link to={""}>TOP</Link>
+              <Link to={"#"}>TOP</Link>
             </Top>
-            {nowPlayingData && <Banner data={nowPlayingData[0]} />}
-            <Mainform> 상영중인 영화 </Mainform>
-            <ShowMovie movieData={nowPlayingData} />
+            {upcomingData && <Banner data={upcomingData[0]} />}
+            <Mainform> 인기있는 영화 </Mainform>
+            <ShowMovie movieData={upcomingData} />
           </Wrap>
         </div>
       )}
