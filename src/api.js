@@ -31,7 +31,8 @@ export const MovieDetail = (id) => {
   return fetch(detailUrl, options).then((res) => res.json());
 };
 
-export const MovireSearch = (Movie) => {
-  const SearchUrl = baseUrl + `search/movie?query=${Movie}` + "&language=ko-KR";
+export const MovireSearch = (Keyword) => {
+  const SearchUrl =
+    baseUrl + `search/movie?query=${Keyword}` + "&language=ko-KR";
   return fetch(SearchUrl, options).then((res) => res.json());
 };

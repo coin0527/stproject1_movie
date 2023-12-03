@@ -8,7 +8,6 @@ import { SignUp } from "./Login/SignUp";
 import { Pagenotfound } from "./components/Pagenotfound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Subpage } from "./Detail/Subpage";
 import { Popular } from "./Home/Pages/Popular";
 import { Lated } from "./Home/Pages/Lated";
 import { Upcoming } from "./Home/Pages/Upcoming";
@@ -23,7 +22,6 @@ const Router = () => {
         <Route path={routes.search} element={<Search />} />
         <Route path={routes.login} element={<Login />} />
         <Route path={routes.signup} element={<SignUp />} />
-        <Route path={routes.sub} element={<Subpage />} />
         <Route path={routes.pop} element={<Popular />} />
         <Route path={routes.upc} element={<Upcoming />} />
         <Route path={routes.rat} element={<Lated />} />

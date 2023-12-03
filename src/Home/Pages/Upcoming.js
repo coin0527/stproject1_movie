@@ -52,7 +52,7 @@ export const Upcoming = () => {
               <Link to={"#"}>TOP</Link>
             </Top>
             {upcomingData && <Banner data={upcomingData[0]} />}
-            <Mainform> 인기있는 영화 </Mainform>
+            <Mainform> 다가오는 영화 </Mainform>
             <ShowMovie movieData={upcomingData} />
           </Wrap>
         </div>

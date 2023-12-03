@@ -13,6 +13,9 @@ const CoverBG = styled.div`
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
+  :hover {
+    transform: translate(-30px);
+  }
 `;
 const BgTitle = styled.div`
   text-align: center;

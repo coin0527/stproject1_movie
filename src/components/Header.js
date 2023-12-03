@@ -38,6 +38,10 @@ const Sidemenu = styled.ul`
     margin-left: 80px;
     text-align: center;
   }
+  li:hover {
+    transition-duration: 0.8s;
+    color: salmon;
+  }
 `;
 const Con2 = styled.div`
   display: flex;

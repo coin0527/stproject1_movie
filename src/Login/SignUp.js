@@ -81,6 +81,10 @@ const Signupq = styled.div`
     font-weight: 800;
     cursor: pointer;
   }
+  h4:hover {
+    transition-duration: 0.8s;
+    color: salmon;
+  }
 `;
 
 export const SignUp = () => {

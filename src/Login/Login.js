@@ -80,6 +80,10 @@ const Signupq = styled.div`
     font-weight: 800;
     cursor: pointer;
   }
+  h4:hover {
+    transition-duration: 0.8s;
+    color: salmon;
+  }
 `;
 
 export const Login = () => {
@@ -96,8 +100,6 @@ export const Login = () => {
       alert("아이디 or 패스워드가 올바르지 않습니다.");
     }
   };
-
-  console.log(formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
