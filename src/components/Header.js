@@ -1,8 +1,14 @@
-import { faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faMagnifyingGlass,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { routes } from "../routes";
+import { useState } from "react";
+import "../style/styles.css";
 
 const Wrap = styled.header`
   width: 100%;
@@ -12,65 +18,89 @@ const Wrap = styled.header`
   align-items: center;
   a {
     color: white;
+    @media screen and (max-width: 500px) {
+      font-size: 15px;
+    }
   }
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
+  @media screen and (max-width: 500px) {
+    padding: 0px;
+  }
 `;
 
 const Logo = styled.div`
   font-size: 30px;
   font-weight: 700;
+  position: absolute;
+  top: 30px;
+  left: 100px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 const User = styled.div`
   font-size: 30px;
+  position: absolute;
+  top: 35px;
+  right: 150px;
+  margin-right: 30px;
 `;
 const Con = styled.div`
   display: flex;
 `;
-
-const Sidemenu = styled.ul`
-  display: flex;
-  li {
-    font-size: 24px;
-    font-weight: 500;
-    margin-left: 80px;
-    text-align: center;
-  }
-  li:hover {
-    transition-duration: 0.8s;
-    color: salmon;
-  }
-`;
-const Con2 = styled.div`
-  display: flex;
+const Line = styled.div`
+  width: 100%;
+  border: 1px solid white;
+  opacity: 0.8;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <Wrap>
-      <Con2>
-        <Logo>
-          <Link to={routes.home}>JMovie</Link>
-        </Logo>
-
-        <Sidemenu>
-          <Link to={"/popular"}>
-            <li> Popular </li>
-          </Link>
-
-          <Link to={"/rated"}>
-            <li> Lated </li>
-          </Link>
-
-          <Link to={""}>
-            <li> Upcoming </li>
-          </Link>
-        </Sidemenu>
-      </Con2>
+      <Logo>
+        <Link to={routes.home}>JMovie</Link>
+      </Logo>
 
       <Con>
+        <div className="container">
+          <FontAwesomeIcon
+            icon={faBars}
+            className="menu-button"
+            onClick={toggleMenu}
+            style={{
+              cursor: "pointer",
+              fontSize: "30px",
+            }}
+          />
+          <div className={`slide-menu ${isMenuOpen ? "open" : ""}`}>
+            <h3> 메뉴 </h3>
+            <Line />
+            <Link to={"/popular"}>
+              <p> Populars </p>
+            </Link>
+            <Link to={"/upcoming"}>
+              <p> Upcoming </p>
+            </Link>
+            <Link to={"/rated"}>
+              <p> Rated </p>
+            </Link>
+            <Line />
+            <Link to={"/pagenotfound"}>
+              <p> Gener </p>
+            </Link>
+          </div>
+        </div>
         <User>
           <Link to={"/search"}>
             <FontAwesomeIcon
@@ -88,7 +118,6 @@ export const Header = () => {
               style={{
                 cursor: "pointer",
                 fontSize: "24px",
-                lineHeight: "50px",
               }}
             />
           </Link>

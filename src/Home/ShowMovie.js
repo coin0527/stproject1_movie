@@ -8,14 +8,14 @@ const Wrap = styled.div`
   grid-template-columns: repeat(6, 1fr);
   column-gap: 30px;
   row-gap: 50px;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 const CoverBG = styled.div`
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
-  :hover {
-    transform: translate(-30px);
-  }
 `;
 const BgTitle = styled.div`
   text-align: center;

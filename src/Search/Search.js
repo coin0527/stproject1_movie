@@ -39,6 +39,11 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(6, 1fr);
   column-gap: 30px;
   row-gap: 50px;
+  @media screen and (max-width: 500px) {
+    padding: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+  }
 `;
 
 const Con = styled.div``;
@@ -48,6 +53,10 @@ const Bg = styled.div`
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 350px;
+  }
 `;
 const MovieTitle = styled.div`
   text-align: center;
@@ -77,8 +86,6 @@ export const Search = () => {
       console.log(error);
     }
   };
-
-  console.log(term);
   return (
     <div>
       <Title style={{ marginTop: "200px" }}>찾으시는 영화가 있으신가요?</Title>
