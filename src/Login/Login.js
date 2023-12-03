@@ -1,7 +1,6 @@
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { User } from "../components/User";
+import { useState } from "react";
 
 const Wrap = styled.div`
   height: 100vh;
@@ -51,8 +50,8 @@ const Button = styled.button`
   font-size: 18px;
   font-weight: 600;
   color: white;
-  opacity: ${(props) => (props.$isActive ? 1 : 0.5)};
-  cursor: ${(props) => (props.$isActive ? "pointer" : "default")};
+  opacity: 0.7;
+  cursor: pointer;
 `;
 
 const Separ = styled.div`
@@ -84,56 +83,51 @@ const Signupq = styled.div`
 `;
 
 export const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({
-    mode: "onChange",
-  });
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const allowedId = ["admin", "user"];
+  const history = useNavigate();
 
-  console.log(errors?.username?.message);
+  const loginHandler = () => {
+    const { username, password } = formData;
 
-  const loginHandler = (data) => {
-    console.log(data);
-
-    if (
-      data.username == User[0].username &&
-      data.password == User[0].password
-    ) {
-      return;
+    if (allowedId.includes(username) && password === "test123123") {
+      history("/");
     } else {
-      console.log("Try again");
+      alert("아이디 or 패스워드가 올바르지 않습니다.");
     }
   };
+
+  console.log(formData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <Wrap>
-      <Form onSubmit={handleSubmit(loginHandler)}>
+      <Form>
         <Title>Login</Title>
 
         <Input
-          {...register("username", {
-            required: "아이디는 필수 입니다.",
-          })}
           type="text"
-          placeholder="admin"
+          name="username"
+          value={formData.username}
+          placeholder="아이디"
+          onChange={handleChange}
         />
         <Input
-          {...register("password", {
-            required: "패스워드는 필수입니다.",
-            minLength: {
-              value: 8,
-              message: "비밀번호는 8자리 이상 작성해야합니다.",
-            },
-            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-            message: "숫자 문자 같이 써야합니다.",
-          })}
           type="password"
-          placeholder="test123123"
+          name="password"
+          value={formData.password}
+          placeholder="패스워드"
+          onChange={handleChange}
         />
-        <Button $isActive={isValid}>
-          <Link to={"/"}>로그인</Link>
-        </Button>
+
+        <Button onClick={loginHandler}>로그인</Button>
 
         <Separ>
           <span></span>

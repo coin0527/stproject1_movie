@@ -36,10 +36,6 @@ export const Home = () => {
       try {
         const { results: nowResults } = await nowPlaying();
         setNowplayingData(nowResults);
-
-        // const { results: upcomings } = await upcoming();
-        // setUpcomingData(upcomings);
-
         setLoad(false);
       } catch (error) {
         console.log("Error : " + error);
