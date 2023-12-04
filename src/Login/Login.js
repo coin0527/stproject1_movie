@@ -41,7 +41,7 @@ const Input = styled.input`
 `;
 const Button = styled.button`
   all: unset;
-  width: 100%;
+  width: 80%;
   height: 50px;
   background-color: salmon;
   text-align: center;
@@ -50,7 +50,6 @@ const Button = styled.button`
   font-size: 18px;
   font-weight: 600;
   color: white;
-  opacity: 0.7;
   cursor: pointer;
 `;
 

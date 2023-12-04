@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { routes } from "../routes";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../style/styles.css";
 
 const Wrap = styled.header`
@@ -38,7 +38,7 @@ const Logo = styled.div`
   top: 30px;
   left: 100px;
   @media screen and (max-width: 500px) {
-    font-size: 20px;
+    left: 30px;
   }
 `;
 const User = styled.div`
@@ -47,6 +47,10 @@ const User = styled.div`
   top: 35px;
   right: 150px;
   margin-right: 30px;
+  @media screen and (max-width: 500px) {
+    top: 30px;
+    right: 50px;
+  }
 `;
 const Con = styled.div`
   display: flex;
@@ -61,10 +65,29 @@ const Line = styled.div`
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef();
+
+  const scrollHandler = () => {
+    const pageY = window.scrollY;
+
+    if (pageY > 500) {
+      headerRef.current.style.position = "fixed";
+      headerRef.current.style.backgroundColor = "rgba(0,0,0,0.7)";
+      headerRef.current.style.backdropFilter = "blur(2px)";
+    } else {
+      headerRef.current.style.position = "absolute";
+      headerRef.current.style.backgroundColor = "transparent";
+      headerRef.current.style.backdropFilter = "blur(0px)";
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    return window.addEventListener("scroll", scrollHandler);
+  });
 
   return (
     <Wrap>

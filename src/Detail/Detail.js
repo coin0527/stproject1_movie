@@ -75,7 +75,7 @@ const Line = styled.div`
   border: 1px solid white;
   opacity: 0.4;
   margin: 30px 0 30px 0;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 500px), (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -106,6 +106,7 @@ export const Detail = () => {
         console.log("Error: " + error);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

@@ -45,9 +45,6 @@ const ConWrap = styled.div`
     column-gap: 15px;
   }
 `;
-
-const Con = styled.div``;
-
 const Bg = styled.div`
   max-width: 300px;
   height: 300px;
@@ -64,12 +61,13 @@ const MovieTitle = styled.div`
   font-weight: 500;
   font-size: 18px;
 `;
-const Box = styled.div``;
 const Movieview = styled.div`
   text-align: center;
   margin-top: 5px;
 `;
 const BgWrap = styled.div``;
+const Box = styled.div``;
+const Con = styled.div``;
 
 export const Search = () => {
   const { register, handleSubmit } = useForm({

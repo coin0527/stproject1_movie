@@ -18,7 +18,7 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 30px;
+  padding: 20px;
 `;
 const Title = styled.div`
   font-size: 50px;
@@ -42,7 +42,7 @@ const Input = styled.input`
 `;
 const Button = styled.button`
   all: unset;
-  width: 80%;
+  width: 60%;
   height: 50px;
   background-color: salmon;
   text-align: center;
@@ -51,8 +51,7 @@ const Button = styled.button`
   font-size: 18px;
   font-weight: 600;
   color: white;
-  opacity: ${(props) => (props.$isActive ? 1 : 0.5)};
-  cursor: ${(props) => (props.$isActive ? "pointer" : "default")};
+  cursor: pointer;
 `;
 
 const Separ = styled.div`
@@ -91,12 +90,10 @@ export const SignUp = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { isValid },
   } = useForm({
     mode: "onChange",
   });
-
-  console.log(errors?.username?.message);
 
   const loginHandler = (data) => {
     console.log(data);
