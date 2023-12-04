@@ -48,11 +48,11 @@ Search.js 구성
 
 ## 2023.12.03
 
-반응형 작업 / Search.js 수정작업 / 간단한 Hover처리
+반응형 작업 / Search.js 수정작업
 
 ## 2023.12.04
 
-Signup 중복 아이디 작업, 컨펌 및 배포
+Hover / signup / 오류수정
 
 ## 2023.12.05
 

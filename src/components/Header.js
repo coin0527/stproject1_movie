@@ -20,9 +20,6 @@ const Wrap = styled.header`
   align-items: center;
   a {
     color: white;
-    @media screen and (max-width: 500px) {
-      font-size: 15px;
-    }
   }
   position: absolute;
   top: 0;
