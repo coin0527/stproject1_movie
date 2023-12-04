@@ -9,6 +9,8 @@ import styled from "styled-components";
 import { routes } from "../routes";
 import { useState } from "react";
 import "../style/styles.css";
+// import { useRef } from "react";
+// import { useEffect } from "react";
 
 const Wrap = styled.header`
   width: 100%;
@@ -65,6 +67,25 @@ const Line = styled.div`
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const headerRef = useRef();
+
+  // const scrollHandler = () => {
+  //   const pageY = window.scrollY;
+
+  //   if (pageY > 500) {
+  //     headerRef.current.style.position = "fixed";
+  //     headerRef.current.style.backgroundColor = "rgba(0,0,0,0.7)";
+  //     headerRef.current.style.backdropFilter = "blur(2px)";
+  //   } else {
+  //     headerRef.current.style.position = "absolute";
+  //     headerRef.current.style.backgroundColor = "transparent";
+  //     headerRef.current.style.backdropFilter = "blur(0px)";
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   return window.addEventListener("scroll", scrollHandler);
+  // });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
