@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Wrap = styled.div`
   height: 100vh;
@@ -85,50 +85,57 @@ const Signupq = styled.div`
   }
 `;
 
+const Span = styled.span`
+  font-size: 14px;
+  color: crimson;
+  font-weight: 600;
+  margin-top: 8px;
+`;
+
 export const Login = () => {
-  const [formData, setFormData] = useState({ username: "", password: "" });
-  const allowedId = ["admin", "user"];
-  const history = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
 
-  const loginHandler = () => {
-    const { username, password } = formData;
+  const onSubmit = (data) => {
+    const { username, password } = data;
 
-    if (allowedId.includes(username) && password === "test123123") {
-      history("/");
+    if (username === "user" && password === "test123123") {
+      navigate("/");
     } else {
-      alert("아이디 or 패스워드가 올바르지 않습니다.");
+      console.log("아이디 혹은 비밀번호가 잘못됨");
     }
   };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   return (
     <Wrap>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>Login</Title>
 
         <Input
+          {...register("username", {
+            required: "아이디는 필수 입니다.",
+            validate: (value) =>
+              value === "user" || "올바른 아이디를 입력하세요.",
+          })}
           type="text"
-          name="username"
-          value={formData.username}
-          placeholder="아이디"
-          onChange={handleChange}
+          placeholder="ID"
         />
+        <Span>{errors.username && errors.username.message}</Span>
         <Input
+          {...register("password", {
+            required: "비밀번호는 필수 입니다.",
+            validate: (value) =>
+              value === "test123123" || "올바른 비밀번호를 입력하세요.",
+          })}
           type="password"
-          name="password"
-          value={formData.password}
-          placeholder="패스워드"
-          onChange={handleChange}
+          placeholder="Password"
         />
+        <Span>{errors.password && errors.password.message}</Span>
 
-        <Button onClick={loginHandler}>로그인</Button>
+        <Button type="submit">로그인</Button>
 
         <Separ>
           <span></span>
