@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrap = styled.div`
@@ -85,52 +85,72 @@ const Signupq = styled.div`
     color: salmon;
   }
 `;
+const Span = styled.span`
+  font-size: 14px;
+  color: crimson;
+  font-weight: 600;
+  margin-top: 8px;
+`;
 
 export const SignUp = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
-  } = useForm({
-    mode: "onChange",
-  });
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
 
-  const loginHandler = (data) => {
-    console.log(data);
+  const onSubmit = (data) => {
+    const { username, password } = data;
+
+    if (username === "user" && password === "test123123") {
+      navigate("/login");
+    } else {
+      console.log("아이디 혹은 비밀번호가 잘못됨");
+    }
   };
   return (
     <Wrap>
-      <Form onSubmit={handleSubmit(loginHandler)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>Sign Up</Title>
 
         <Input
           {...register("username", {
             required: "아이디는 필수 입니다.",
+            validate: (value) =>
+              value === "user" || "올바른 아이디를 입력하세요." || true,
           })}
           type="text"
           placeholder="ID"
         />
+        <Span>{errors.username && errors.username.message}</Span>
         <Input
           {...register("password", {
             required: "패스워드는 필수입니다.",
+            validate: (value) =>
+              value === "test123123" || "올바른 비밀번호를 입력하세요." || true,
             minLength: {
               value: 8,
               message: "비밀번호는 8자리 이상 작성해야합니다.",
             },
-            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-            message: "숫자 문자 같이 써야합니다.",
+            pattern: {
+              pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+              message: "숫자 문자 같이 써야합니다.",
+            },
           })}
-          type="password"
+          type="Password"
           placeholder="Password"
         />
+        <Span>{errors.password && errors.password.message}</Span>
+
         <Input
           {...register("nickname", {
-            required: "아이디는 필수 입니다.",
+            required: "닉네임은 필수 입니다.",
           })}
           type="text"
           placeholder="Cover ID"
         />
-        <Button $isActive={isValid}> 회원가입 </Button>
+        <Button type="submit"> 회원가입 </Button>
 
         <Separ>
           <span></span>

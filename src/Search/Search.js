@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MovireSearch } from "../api";
 import { IMG_URL } from "../components/Setcons";
+import { NoImage } from "../components/NoImage";
 
 const Title = styled.h3`
   display: flex;
@@ -103,7 +104,11 @@ export const Search = () => {
             <Con key={data.id}>
               <BgWrap>
                 <Link to={`/detail/${data.id}`}>
-                  <Bg $bgUrl={data.backdrop_path} />
+                  {data.backdrop_path ? (
+                    <Bg $bgUrl={data.backdrop_path} />
+                  ) : (
+                    <NoImage />
+                  )}
                 </Link>
               </BgWrap>
 
