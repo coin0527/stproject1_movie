@@ -48,9 +48,6 @@ export const Popular = () => {
       ) : (
         <div>
           <Wrap>
-            <Top>
-              <Link to={"#"}>TOP</Link>
-            </Top>
             {popularData && <Banner data={popularData[0]} />}
             <Mainform> 인기있는 영화 </Mainform>
             <ShowMovie movieData={popularData} />

@@ -18,7 +18,7 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
 `;
 const Title = styled.div`
   font-size: 50px;
@@ -31,7 +31,7 @@ const Input = styled.input`
   box-sizing: border-box;
   width: 80%;
   height: 50px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0 15px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -42,7 +42,7 @@ const Input = styled.input`
 `;
 const Button = styled.button`
   all: unset;
-  width: 60%;
+  width: 80%;
   height: 50px;
   background-color: salmon;
   text-align: center;
@@ -76,7 +76,7 @@ const Signupq = styled.div`
   display: flex;
   opacity: 0.8;
   h4 {
-    margin-left: 50px;
+    margin-left: 20px;
     font-weight: 800;
     cursor: pointer;
   }

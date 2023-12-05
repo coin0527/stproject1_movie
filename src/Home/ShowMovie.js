@@ -16,6 +16,10 @@ const CoverBG = styled.div`
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
+  border-radius: 10px;
+  @media screen and (max-width: 500px) {
+    height: 150px;
+  }
 `;
 const BgTitle = styled.div`
   text-align: center;

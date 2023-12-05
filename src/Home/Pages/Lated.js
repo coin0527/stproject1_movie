@@ -49,9 +49,6 @@ export const Lated = () => {
       ) : (
         <div>
           <Wrap>
-            <Top>
-              <Link to={"#"}>TOP</Link>
-            </Top>
             {toplatedData && <Banner data={toplatedData[0]} />}
             <Mainform> 랭킹 </Mainform>
             <ShowMovie movieData={toplatedData} />

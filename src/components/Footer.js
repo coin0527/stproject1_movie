@@ -7,6 +7,7 @@ const Container = styled.footer`
   justify-content: center;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.6);
+  margin-top: 100px;
 `;
 
 const ScrollTop = styled.button`

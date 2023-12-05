@@ -28,6 +28,7 @@ const Wrap = styled.div`
     font-weight: 400;
     opacity: 0.8;
     letter-spacing: 1px;
+    line-height: 33px;
   }
 `;
 const Gradients = styled.div`

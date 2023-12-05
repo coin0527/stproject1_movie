@@ -11,7 +11,7 @@ const Form = styled.form`
   max-width: 450px;
   width: 100%;
   height: 550px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   margin-top: 18vh;
   border-radius: 10px;
   display: flex;
@@ -41,7 +41,7 @@ const Input = styled.input`
 `;
 const Button = styled.button`
   all: unset;
-  width: 80%;
+  width: 100%;
   height: 50px;
   background-color: salmon;
   text-align: center;
@@ -75,7 +75,7 @@ const Signupq = styled.div`
   display: flex;
   opacity: 0.8;
   h4 {
-    margin-left: 50px;
+    margin-left: 20px;
     font-weight: 800;
     cursor: pointer;
   }

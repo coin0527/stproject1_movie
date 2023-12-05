@@ -48,9 +48,6 @@ export const Upcoming = () => {
       ) : (
         <div>
           <Wrap>
-            <Top>
-              <Link to={"#"}>TOP</Link>
-            </Top>
             {upcomingData && <Banner data={upcomingData[0]} />}
             <Mainform> 다가오는 영화 </Mainform>
             <ShowMovie movieData={upcomingData} />

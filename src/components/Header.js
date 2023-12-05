@@ -1,6 +1,7 @@
 import {
   faBars,
   faMagnifyingGlass,
+  faSearch,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +16,7 @@ import { useEffect } from "react";
 const Wrap = styled.header`
   width: 100%;
   padding: 20px 5%;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,13 +55,6 @@ const User = styled.div`
 `;
 const Con = styled.div`
   display: flex;
-`;
-const Line = styled.div`
-  width: 100%;
-  border: 1px solid white;
-  opacity: 0.8;
-  margin-top: 20px;
-  margin-bottom: 20px;
 `;
 
 export const Header = () => {
@@ -109,8 +104,6 @@ export const Header = () => {
             }}
           />
           <div className={`slide-menu ${isMenuOpen ? "open" : ""}`}>
-            <h3> 메뉴 </h3>
-            <Line />
             <Link to={"/popular"}>
               <p> Populars </p>
             </Link>
@@ -119,10 +112,6 @@ export const Header = () => {
             </Link>
             <Link to={"/rated"}>
               <p> Rated </p>
-            </Link>
-            <Line />
-            <Link to={"/pagenotfound"}>
-              <p> Gener </p>
             </Link>
           </div>
         </div>
