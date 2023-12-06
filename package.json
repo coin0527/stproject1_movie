@@ -34,7 +34,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://coin0527.github.io/stproject1_movie/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -55,5 +54,6 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.0"
-  }
+  },
+  "homepage": "https://coin0527.github.io/stproject1_movie/"
 }
