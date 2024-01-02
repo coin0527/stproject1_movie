@@ -54,7 +54,7 @@ export const Footer = () => {
 
   return (
     <Container>
-      &copy;JMovie
+      &copy;JMovie eden27
       {isVisible && (
         <ScrollTop onClick={scrollToTop}>
           <h3>UP</h3>

@@ -1,32 +1,19 @@
-import {
-  faBars,
-  faMagnifyingGlass,
-  faSearch,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { routes } from "../routes";
-import { useState } from "react";
 import "../style/styles.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 
 const Wrap = styled.header`
   width: 100%;
-  padding: 20px 5%;
   height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 10;
   a {
     color: white;
   }
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
   @media screen and (max-width: 500px) {
     padding: 0px;
   }
@@ -35,30 +22,24 @@ const Wrap = styled.header`
 const Logo = styled.div`
   font-size: 30px;
   font-weight: 700;
-  position: absolute;
-  top: 30px;
-  left: 100px;
   @media screen and (max-width: 500px) {
     left: 30px;
   }
 `;
 const User = styled.div`
   font-size: 30px;
-  position: absolute;
-  top: 35px;
-  right: 150px;
-  margin-right: 30px;
   @media screen and (max-width: 500px) {
     top: 30px;
     right: 50px;
   }
 `;
-const Con = styled.div`
+const Container = styled.div`
   display: flex;
+  justify-content: space-between;
+  padding: 35px;
 `;
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -82,39 +63,13 @@ export const Header = () => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <Wrap ref={headerRef}>
-      <Logo>
-        <Link to={routes.home}>JMovie</Link>
-      </Logo>
+      <Container>
+        <Logo>
+          <Link to={routes.home}>JMovie</Link>
+        </Logo>
 
-      <Con>
-        <div className="container">
-          <FontAwesomeIcon
-            icon={faBars}
-            className="menu-button"
-            onClick={toggleMenu}
-            style={{
-              cursor: "pointer",
-              fontSize: "30px",
-            }}
-          />
-          <div className={`slide-menu ${isMenuOpen ? "open" : ""}`}>
-            <Link to={"/popular"}>
-              <p> Populars </p>
-            </Link>
-            <Link to={"/upcoming"}>
-              <p> Upcoming </p>
-            </Link>
-            <Link to={"/rated"}>
-              <p> Rated </p>
-            </Link>
-          </div>
-        </div>
         <User>
           <Link to={"/search"}>
             <FontAwesomeIcon
@@ -136,7 +91,7 @@ export const Header = () => {
             />
           </Link>
         </User>
-      </Con>
+      </Container>
     </Wrap>
   );
 };

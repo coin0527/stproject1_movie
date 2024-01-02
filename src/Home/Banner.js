@@ -16,14 +16,14 @@ const Wrap = styled.div`
   h3 {
     width: 100%;
     max-width: 700px;
-    font-size: 70px;
-    font-weight: 500;
+    font-size: 55px;
+    font-weight: 700;
     margin-bottom: 30px;
     letter-spacing: -3px;
   }
   p {
     width: 100%;
-    max-width: 900px;
+    max-width: 700px;
     font-size: 19px;
     font-weight: 400;
     opacity: 0.8;
@@ -37,7 +37,7 @@ const Gradients = styled.div`
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.8) 55%,
+    rgba(0, 0, 0, 0.7) 30%,
     rgba(0, 0, 0, 0) 95%
   );
   position: absolute;
