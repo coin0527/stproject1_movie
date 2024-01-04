@@ -37,7 +37,7 @@ const Gradients = styled.div`
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.7) 31%,
+    rgba(0, 0, 0, 0.7) 30%,
     rgba(0, 0, 0, 0) 95%
   );
   position: absolute;
