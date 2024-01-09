@@ -9,7 +9,7 @@ const Wrap = styled.div``;
 const Mainform = styled.div`
   width: 100%;
   max-width: 100%;
-  padding: 35px;
+  padding: 50px 5%;
   font-size: 50px;
   font-weight: 600;
 `;

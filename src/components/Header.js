@@ -36,7 +36,7 @@ const User = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 35px;
+  padding: 35px 5%;
 `;
 
 export const Header = () => {

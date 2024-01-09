@@ -5,22 +5,19 @@ import { useParams } from "react-router-dom";
 import { IMG_URL } from "../components/Setcons";
 import { Loading } from "../components/Loading";
 
-const Wrap = styled.div`
-  padding: 50px 5%;
-`;
+const Wrap = styled.div``;
 
 const Con = styled.div`
   display: flex;
-  margin-top: 50px;
+  padding: 100px 5%;
   @media screen and (max-width: 500px) {
     display: block;
   }
 `;
 const Coverbg = styled.div`
   width: 100%;
-  max-width: 35%;
+  max-width: 50%;
   height: 700px;
-  margin: 0 100px 200px 85px;
   background: url(${IMG_URL}/w1280/${(props) => props.$BgUrl}) no-repeat center /
     cover;
   @media screen and (max-width: 500px) {
@@ -32,6 +29,7 @@ const Coverbg = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0px 5%;
 `;
 const Title = styled.h3`
   font-weight: 700;
@@ -97,7 +95,7 @@ export const Detail = () => {
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       try {
         const data = await MovieDetail(id);
         setDetailData(data);
@@ -105,9 +103,9 @@ export const Detail = () => {
       } catch (error) {
         console.log("Error: " + error);
       }
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    };
+    fetchData();
+  }, [id]);
   return (
     <div>
       {load ? (
