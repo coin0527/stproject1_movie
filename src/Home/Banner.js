@@ -29,6 +29,10 @@ const Wrap = styled.div`
     opacity: 0.8;
     letter-spacing: 1px;
     line-height: 33px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* 라인 수 */
+    -webkit-box-orient: vertical;
   }
 `;
 const Gradients = styled.div`
@@ -44,12 +48,17 @@ const Gradients = styled.div`
   top: 0;
   left: 0;
 `;
+
 export const Banner = ({ data }) => {
+  const truncatedOverview = data.overview.substring(0, 100);
+  const displayedOverview =
+    data.overview.length > 300 ? truncatedOverview + "..." : data.overview;
+
   return (
     <Wrap $bgUrl={data.backdrop_path}>
       <Gradients />
       <h3>{data.title}</h3>
-      <p>{data.overview}</p>
+      <p>{displayedOverview}</p>
     </Wrap>
   );
 };

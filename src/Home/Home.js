@@ -21,8 +21,8 @@ const Mainform = styled.div`
 const SlideMenu = styled.div`
   position: absolute;
   top: 110px;
-  left: 50px;
-  width: 30%;
+  left: 5%;
+  width: 300px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
@@ -95,7 +95,7 @@ export const Home = () => {
               />
               <SlideMenu isOpen={isSlideMenuOpen}>
                 <SlideMenuItem to="/popular">인기 영화</SlideMenuItem>
-                <SlideMenuItem to="/latest">최신 영화</SlideMenuItem>
+                <SlideMenuItem to="/rated">최신 영화</SlideMenuItem>
                 <SlideMenuItem to="/upcoming">상영 예정 영화</SlideMenuItem>
               </SlideMenu>
             </Mainform>
