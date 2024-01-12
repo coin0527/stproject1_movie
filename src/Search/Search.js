@@ -6,6 +6,10 @@ import { MovireSearch } from "../api";
 import { IMG_URL } from "../components/Setcons";
 import { NoImage } from "../components/NoImage";
 
+const Wrap = styled.div`
+  margin-top: 100px;
+`;
+
 const Title = styled.h3`
   display: flex;
   justify-content: center;
@@ -40,6 +44,7 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(6, 1fr);
   column-gap: 30px;
   row-gap: 50px;
+  padding: 0 5%;
   @media screen and (max-width: 500px) {
     padding: 10px;
     grid-template-columns: repeat(2, 1fr);
@@ -51,6 +56,7 @@ const Bg = styled.div`
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
+  border-radius: 10px;
   @media screen and (max-width: 500px) {
     width: 100%;
     height: 150px;
@@ -86,8 +92,8 @@ export const Search = () => {
     }
   };
   return (
-    <div>
-      <Title style={{ marginTop: "200px" }}>찾으시는 영화가 있으신가요?</Title>
+    <Wrap>
+      <Title style={{ marginTop: "100px" }}>찾으시는 영화가 있으신가요?</Title>
 
       <Form onSubmit={handleSubmit(searchHandler)}>
         <Input
@@ -120,6 +126,6 @@ export const Search = () => {
           ))}
         </ConWrap>
       )}
-    </div>
+    </Wrap>
   );
 };

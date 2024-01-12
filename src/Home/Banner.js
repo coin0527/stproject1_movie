@@ -3,7 +3,7 @@ import { IMG_URL } from "../components/Setcons";
 
 const Wrap = styled.div`
   width: 100%;
-  height: 500px;
+  height: 400px;
   padding: 300px 5%;
   background-color: lightgray;
   background: url(${IMG_URL}/original/${(props) => props.$bgUrl}) no-repeat
