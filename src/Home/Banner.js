@@ -31,7 +31,7 @@ const Wrap = styled.div`
     line-height: 33px;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* 라인 수 */
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
 `;
@@ -53,7 +53,7 @@ export const Banner = ({ data }) => {
   const truncatedOverview = data.overview.substring(0, 100);
   const displayedOverview =
     data.overview.length > 300 ? truncatedOverview + "..." : data.overview;
-
+  // 오버뷰 수 제한
   return (
     <Wrap $bgUrl={data.backdrop_path}>
       <Gradients />
