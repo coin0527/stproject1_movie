@@ -78,7 +78,7 @@ export const Upcoming = () => {
           <Wrap>
             {upcomingData.length > 0 && <Banner data={upcomingData[0]} />}
             <Mainform>
-              다가오는 영화
+              상영예정 영화
               <FontAwesomeIcon
                 icon={faCaretDown}
                 style={{
